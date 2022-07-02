@@ -1,6 +1,12 @@
 package lambdas.ch02.exercise;
 
+
+
 import java.math.BigDecimal;
+
+import lambdas.ch02.exercise.CashPayment;
+import lambdas.ch02.exercise.Item;
+import lambdas.ch02.exercise.ShoppingCartStrategy;
 
 //Solution to shopping cart exercise.
 public class ShoppingCartTest {
@@ -10,13 +16,15 @@ public class ShoppingCartTest {
 		Item item2 = new Item("Laptop",BigDecimal.valueOf(800.00));
 		Item item3 = new Item("Paper",BigDecimal.valueOf(10.00));
 		
-		ShoppingCartStrategy shoppingCart = new ShoppingCartStrategy();
+		ShoppingCartLamdas shoppingCart = new ShoppingCartLamdas();
+		// ShoppingCartStrategy shoppingCart = new ShoppingCartStrategy();
 		shoppingCart.addItem(item1);
 		shoppingCart.addItem(item2);
 		shoppingCart.addItem(item3);
 		
-		//Testing without strategy.
-		System.out.println(shoppingCart.pay(new CashPayment()));
+		//Testing without strategy.		
+		//System.out.println(shoppingCart.pay(new CashPayment()));
+		System.out.println(shoppingCart.pay(Payment::payByCreditCard));
 	}
 
 }
